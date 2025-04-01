@@ -1,0 +1,20 @@
+
+@startuml RIPv2 Periodic Update
+
+title RIPv2 Periodic Update
+
+participant RouterP
+participant RouterQ
+
+activate RouterP
+activate RouterQ
+
+loop Every 30 Seconds
+    RouterP -> RouterQ: RIPv2 Periodic Update (Version 2, Command 2, Route Updates)
+    RouterQ -> RouterP: RIPv2 Periodic Update (Version 2, Command 2, Route Updates)
+end
+
+deactivate RouterP
+deactivate RouterQ
+
+@enduml

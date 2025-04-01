@@ -1,0 +1,19 @@
+@startuml EIGRP Operation
+
+title EIGRP Neighbor Discovery
+
+participant RouterA
+participant RouterB
+
+activate RouterA
+activate RouterB
+
+RouterA -> RouterB: Hello Packet (Neighbor Discovery)
+RouterB -> RouterA: Hello Packet (Neighbor Discovery)
+RouterA -> RouterB: Update Packet (Initial Exchange)
+RouterB -> RouterA: Update Packet (Initial Exchange)
+
+deactivate RouterA
+deactivate RouterB
+
+@enduml

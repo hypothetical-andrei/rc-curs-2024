@@ -1,0 +1,23 @@
+
+@startuml IS-IS Link-State PDU (LSP) Flooding
+
+title IS-IS LSP Flooding
+
+participant RouterX
+participant RouterY
+participant RouterZ
+
+activate RouterX
+activate RouterY
+activate RouterZ
+
+RouterX -> RouterY: LSP (Link-State PDU)
+RouterY -> RouterX: LSP Acknowledgement (PSNP or CSNP)
+RouterY -> RouterZ: LSP
+RouterZ -> RouterY: LSP Acknowledgement (PSNP or CSNP)
+
+deactivate RouterX
+deactivate RouterY
+deactivate RouterZ
+
+@enduml

@@ -1,0 +1,27 @@
+
+@startuml EIGRP DUAL Algorithm
+
+title EIGRP DUAL Algorithm
+
+participant RouterX
+participant RouterY
+participant RouterZ
+
+activate RouterX
+activate RouterY
+activate RouterZ
+
+RouterX -> RouterY: Update Packet (Advertised Distance)
+RouterY -> RouterY: Check Feasibility Condition (Advertised Distance < Feasible Distance)
+alt Feasible
+    RouterY -> RouterY: Add Route to Topology Table (Feasible Successor)
+    RouterY -> RouterZ: Update Packet (Advertised Distance)
+else Not Feasible
+    RouterY -> RouterY: Add Route to Topology Table (Successor)
+end
+
+deactivate RouterX
+deactivate RouterY
+deactivate RouterZ
+
+@enduml

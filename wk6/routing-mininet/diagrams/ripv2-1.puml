@@ -1,0 +1,24 @@
+@startuml RIPv2 Operation
+
+title RIPv2 Route Update Exchange
+
+participant RouterA
+participant RouterB
+participant RouterC
+
+activate RouterA
+activate RouterB
+activate RouterC
+
+RouterA -> RouterB: RIPv2 Request (Version 2, Command 1)
+RouterB -> RouterA: RIPv2 Response (Version 2, Command 2, Route Updates)
+RouterB -> RouterC: RIPv2 Response (Version 2, Command 2, Route Updates)
+RouterC -> RouterB: RIPv2 Response (Version 2, Command 2, Route Updates)
+RouterA -> RouterC: RIPv2 Request (Version 2, Command 1)
+RouterC -> RouterA: RIPv2 Response (Version 2, Command 2, Route Updates)
+
+deactivate RouterA
+deactivate RouterB
+deactivate RouterC
+
+@enduml

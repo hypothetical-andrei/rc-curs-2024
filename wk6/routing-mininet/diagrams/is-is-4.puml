@@ -1,0 +1,27 @@
+
+@startuml IS-IS Level 1 and Level 2 Operation
+
+title IS-IS Level 1 / Level 2 Operation
+
+participant RouterL1
+participant RouterL1L2
+participant RouterL2
+
+activate RouterL1
+activate RouterL1L2
+activate RouterL2
+
+RouterL1 -> RouterL1: Level 1 Adjacencies
+RouterL1L2 -> RouterL1: Level 1 Adjacencies
+RouterL1L2 -> RouterL2: Level 2 Adjacencies
+RouterL2 -> RouterL1L2: Level 2 Adjacencies
+RouterL1 -> RouterL1L2: Level 1 LSPs
+RouterL1L2 -> RouterL1: Level 1 LSPs
+RouterL1L2 -> RouterL2: Level 2 LSPs
+RouterL2 -> RouterL1L2: Level 2 LSPs
+
+deactivate RouterL1
+deactivate RouterL1L2
+deactivate RouterL2
+
+@enduml

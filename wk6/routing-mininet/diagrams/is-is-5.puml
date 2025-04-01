@@ -1,0 +1,19 @@
+@startuml IS-IS CSNP and PSNP
+
+title IS-IS CSNP/PSNP Operation
+
+participant RouterC
+participant RouterD
+
+activate RouterC
+activate RouterD
+
+RouterC -> RouterD: CSNP (Complete Sequence Number PDU)
+RouterD -> RouterC: PSNP (Partial Sequence Number PDU)
+RouterC -> RouterD: LSP (Link State PDU)
+RouterD -> RouterC: PSNP (Link State PDU acknowledgement)
+
+deactivate RouterC
+deactivate RouterD
+
+@enduml

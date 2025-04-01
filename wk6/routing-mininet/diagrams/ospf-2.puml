@@ -1,0 +1,23 @@
+
+@startuml OSPF Link-State Advertisement (LSA) Flooding
+
+title OSPF LSA Flooding
+
+participant RouterX
+participant RouterY
+participant RouterZ
+
+activate RouterX
+activate RouterY
+activate RouterZ
+
+RouterX -> RouterY: LSU Packet (LSA)
+RouterY -> RouterX: LSAck Packet
+RouterY -> RouterZ: LSU Packet (LSA)
+RouterZ -> RouterY: LSAck Packet
+
+deactivate RouterX
+deactivate RouterY
+deactivate RouterZ
+
+@enduml

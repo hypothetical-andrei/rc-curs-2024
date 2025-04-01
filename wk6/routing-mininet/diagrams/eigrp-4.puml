@@ -1,0 +1,19 @@
+@startuml EIGRP Stuck-in-Active (SIA)
+
+title EIGRP Stuck-in-Active (SIA)
+
+participant RouterS
+participant RouterT
+
+activate RouterS
+activate RouterT
+
+RouterS -> RouterT: Query Packet
+RouterT -> RouterT: Process Query (Time Exceeds SIA Timer)
+RouterT -> RouterS: SIA-Reply
+RouterS -> RouterS: declare neighbor down.
+
+deactivate RouterS
+deactivate RouterT
+
+@enduml

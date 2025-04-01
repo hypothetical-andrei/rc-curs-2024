@@ -1,0 +1,19 @@
+@startuml IS-IS Operation
+
+title IS-IS Neighbor Discovery (Adjacency Formation)
+
+participant RouterA
+participant RouterB
+
+activate RouterA
+activate RouterB
+
+RouterA -> RouterB: Hello PDU (IIH - IS-IS Hello PDU)
+RouterB -> RouterA: Hello PDU (IIH - IS-IS Hello PDU)
+RouterA -> RouterB: Adjacency Formation (Based on IIH parameters)
+RouterB -> RouterA: Adjacency Formation (Based on IIH parameters)
+
+deactivate RouterA
+deactivate RouterB
+
+@enduml

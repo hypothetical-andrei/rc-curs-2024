@@ -1,0 +1,22 @@
+@startuml RIPv2 Authentication
+
+title RIPv2 Authentication
+
+participant RouterS
+participant RouterT
+
+activate RouterS
+activate RouterT
+
+RouterS -> RouterT: RIPv2 Update (Version 2, Command 2, Authentication Data)
+RouterT -> RouterT: Verify Authentication
+alt Authentication Success
+    RouterT -> RouterT: Update Routing Table
+else Authentication Failure
+    RouterT -> RouterT: Discard Update
+end
+
+deactivate RouterS
+deactivate RouterT
+
+@enduml

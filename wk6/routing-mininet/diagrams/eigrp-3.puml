@@ -1,0 +1,13 @@
+
+@startuml EIGRP Route Calculation
+
+title EIGRP Route Calculation
+
+participant RouterM
+
+RouterM -> RouterM: Update Topology Table (Successors, Feasible Successors)
+RouterM -> RouterM: Run DUAL Algorithm
+RouterM -> RouterM: Select Best Routes from Topology Table
+RouterM -> RouterM: Update Routing Table
+
+@enduml

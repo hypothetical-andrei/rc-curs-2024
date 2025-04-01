@@ -1,0 +1,23 @@
+@startuml OSPF Area Operation
+
+title OSPF Area Operation
+
+participant RouterA
+participant RouterB
+participant ABR
+
+activate RouterA
+activate RouterB
+activate ABR
+
+RouterA -> RouterB: LSA (Area 1)
+RouterB -> RouterA: LSA (Area 1)
+ABR -> ABR: Summarize Area 1 LSAs
+ABR -> RouterA: Summary LSA (Area 0)
+ABR -> RouterB: Summary LSA (Area 0)
+
+deactivate RouterA
+deactivate RouterB
+deactivate ABR
+
+@enduml

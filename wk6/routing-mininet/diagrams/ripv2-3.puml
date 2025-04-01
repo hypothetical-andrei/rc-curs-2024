@@ -1,0 +1,18 @@
+@startuml RIPv2 Triggered Update
+
+title RIPv2 Triggered Update
+
+participant RouterX
+participant RouterY
+
+activate RouterX
+activate RouterY
+
+RouterX -> RouterX: Detect Network Change (e.g., Link Down)
+RouterX -> RouterY: RIPv2 Triggered Update (Version 2, Command 2, Updated Route)
+RouterY -> RouterY: Update Routing Table
+
+deactivate RouterX
+deactivate RouterY
+
+@enduml

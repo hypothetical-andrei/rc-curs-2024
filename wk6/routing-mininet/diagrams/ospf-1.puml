@@ -1,0 +1,23 @@
+@startuml OSPF Operation
+
+title OSPF Neighbor Discovery
+
+participant RouterA
+participant RouterB
+
+activate RouterA
+activate RouterB
+
+RouterA -> RouterB: Hello Packet (Neighbor Discovery)
+RouterB -> RouterA: Hello Packet (Neighbor Discovery)
+RouterA -> RouterB: DBD Packet (Initial Database Exchange)
+RouterB -> RouterA: DBD Packet (Initial Database Exchange)
+RouterA -> RouterB: LSR Packet (Link-State Request)
+RouterB -> RouterA: LSU Packet (Link-State Update)
+RouterB -> RouterA: LSAck Packet (Link-State Acknowledgement)
+RouterA -> RouterB: LSAck Packet (Link-State Acknowledgement)
+
+deactivate RouterA
+deactivate RouterB
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml OSPF Designated Router (DR) and Backup Designated Router (BDR) Election
+
+title OSPF DR/BDR Election
+
+participant RouterP
+participant RouterQ
+participant RouterR
+participant RouterS
+
+activate RouterP
+activate RouterQ
+activate RouterR
+activate RouterS
+
+RouterP -> RouterQ: Hello Packet
+RouterQ -> RouterR: Hello Packet
+RouterR -> RouterS: Hello Packet
+RouterS -> RouterP: Hello Packet
+
+RouterP -> RouterP: DR Election (Based on Priority/Router ID)
+RouterQ -> RouterQ: BDR Election (Based on Priority/Router ID)
+
+note over RouterP: DR
+note over RouterQ: BDR
+
+deactivate RouterP
+deactivate RouterQ
+deactivate RouterR
+deactivate RouterS
+
+@enduml

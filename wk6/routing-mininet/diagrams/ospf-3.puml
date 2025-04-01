@@ -1,0 +1,13 @@
+
+@startuml OSPF SPF Algorithm
+
+title OSPF SPF Algorithm
+
+participant RouterM
+
+RouterM -> RouterM: Update Link-State Database (LSDB)
+RouterM -> RouterM: Run SPF Algorithm (Dijkstra's Algorithm)
+RouterM -> RouterM: Calculate Shortest Path Tree
+RouterM -> RouterM: Update Routing Table
+
+@enduml

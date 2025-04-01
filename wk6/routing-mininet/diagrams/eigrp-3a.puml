@@ -1,0 +1,23 @@
+
+@startuml EIGRP Query and Reply
+
+title EIGRP Query and Reply
+
+participant RouterP
+participant RouterQ
+participant RouterR
+
+activate RouterP
+activate RouterQ
+activate RouterR
+
+RouterP -> RouterQ: Query Packet (Route Unavailable)
+RouterQ -> RouterR: Query Packet (Route Unavailable)
+RouterR -> RouterQ: Reply Packet (Route Information or Unreachable)
+RouterQ -> RouterP: Reply Packet (Route Information or Unreachable)
+
+deactivate RouterP
+deactivate RouterQ
+deactivate RouterR
+
+@enduml
