@@ -1,0 +1,44 @@
+@startuml
+title WPA2 4-Way Handshake Sequence
+
+participant "Client (STA)" as STA
+participant "Access Point (AP)" as AP
+
+== Initialization ==
+note over STA, AP
+Ambele părți cunosc PMK (derivată din PSK).
+Se inițiază 4-way handshake.
+end note
+
+== Message 1 ==
+AP -> STA : [Msg 1]\nNonce (ANonce), MIC optional\n(identificare AP)
+
+note right of STA
+STA primește ANonce și generează SNonce (nonce propriu).
+Calculează PTK = PRF(PMK, ANonce + SNonce + MAC-uri)
+end note
+
+== Message 2 ==
+STA -> AP : [Msg 2]\nSNonce, MIC (Msg1)
+
+note right of AP
+AP folosește SNonce + ANonce + PMK + MAC-uri\npentru a calcula PTK.
+Verifică MIC-ul din Msg2.
+end note
+
+== Message 3 ==
+AP -> STA : [Msg 3]\nInstall GTK (Group Key)\nMIC (Msg3), Encrypted GTK
+
+note right of STA
+Clientul instalează PTK + GTK și verifică MIC-ul.
+end note
+
+== Message 4 ==
+STA -> AP : [Msg 4]\nACK de confirmare
+
+note over STA, AP
+Handshake-ul s-a finalizat.
+Ambele părți folosesc acum aceleași chei criptografice.
+end note
+
+@enduml
