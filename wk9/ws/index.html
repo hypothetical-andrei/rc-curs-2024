@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screen Capture Viewer</title>
+</head>
+<body>
+    <h1>Screen Capture Viewer</h1>
+    <button onclick="requestCapture()">Capture Screen</button>
+    <img id="screenshot" src="" alt="Screen Capture Will Appear Here">
+    <script>
+        var ws = new WebSocket("ws://127.0.0.1:5000/capture");
+
+        ws.onmessage = function(event) {
+            var imageSrc = 'data:image/jpeg;base64,' + event.data;
+            document.getElementById('screenshot').src = imageSrc;
+        };
+
+        function requestCapture() {
+            ws.send("capture");
+        }
+    </script>
+</body>
+</html>
