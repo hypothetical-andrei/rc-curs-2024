@@ -1,0 +1,17 @@
+user anonymous^M
+331 Username ok, send password.
+pass^M
+230 Login successful.
+pasv^M
+227 Entering passive mode (127,0,0,1,222,211).
+421 Passive data channel timed out.
+pasv^M
+
+-----------
+nc localhost <PORT=231*256+109> 
+----------
+
+227 Entering passive mode (127,0,0,1,231,109).
+nlst^M
+125 Data connection already open. Transfer starting.
+226 Transfer complete.
