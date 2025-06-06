@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  ipfs:
+    image: ipfs/go-ipfs:latest
+    container_name: ipfs_node
+    ports:
+      - "4001:4001"        # libp2p swarm (for peer-to-peer)
+      - "5001:5001"        # API (for CLI or apps)
+      - "8080:8080"        # Gateway (HTTP access to files)
+    volumes:
+      - ipfs_staging:/export   # for staging files before add
+      - ipfs_data:/data/ipfs   # persistent IPFS repo
+    restart: unless-stopped
+
+volumes:
+  ipfs_staging:
+  ipfs_data:

@@ -1,0 +1,17 @@
+220 pyftpdlib 2.0.1 ready.
+user anonymous^M
+331 Username ok, send password.
+pass^M
+230 Login successful.
+-------------------
+nc -l -p 1025
+-------------------
+port 127,0,0,1,4,1
+^M
+200 Active data connection established.
+retr test.txt
+^M
+550 No such file or directory.
+retr a.txt^M
+125 Data connection already open. Transfer starting.
+226 Transfer complete.

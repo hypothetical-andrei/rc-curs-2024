@@ -1,0 +1,3 @@
+if using the server with netcat, we need to end each command with \r\n
+the default is \n, so to send a \r we need to press Ctrl+V Ctrl+M
+to send a \n we need to press Ctrl+V Ctrl+J
